@@ -8,7 +8,4 @@ public class JackSparrow {
         return "I found the CursedCoin!";
     }
 
-    public String LegendaryCompass(){
-        return null;
-    }
 }
