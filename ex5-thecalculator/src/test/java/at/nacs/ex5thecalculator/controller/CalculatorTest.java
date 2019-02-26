@@ -1,6 +1,5 @@
 package at.nacs.ex5thecalculator.controller;
 
-import at.nacs.ex5thecalculator.Calculator;
 import at.nacs.ex5thecalculator.model.Expression;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

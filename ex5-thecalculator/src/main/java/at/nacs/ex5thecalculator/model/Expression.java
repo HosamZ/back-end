@@ -1,4 +1,4 @@
-package at.nacs.ex5thecalculator;
+package at.nacs.ex5thecalculator.model;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -10,5 +10,4 @@ public class Expression {
     private final Double number1;
     private final Double number2;
     private final String symbol;
-
 }
