@@ -1,32 +1,24 @@
 package at.nacs.ex5thecalculator.controller;
 
 import at.nacs.ex5thecalculator.model.Expression;
-import at.nacs.ex5thecalculator.model.IllegalArgumentException;
-import at.nacs.ex5thecalculator.model.Operator;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import at.nacs.ex5thecalculator.model.Operation;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+import java.util.Set;
 
 
-@Configuration
+@RequiredArgsConstructor
+@Component
 public class Calculator {
 
-    @Bean
-    Operator multiplicatition;
+    private final Set<Operation> operations;
 
-    @Bean
-    Operator division() {
-        return new Operator() {
-        }
-    }
-
-    @Bean
-
-
-    public double calculate(Expression expression) throws IllegalArgumentException {
-        if (  ) {
-            throw new IllegalArgumentException();
-        }
-
-        return 0;
+    public double calculate(Expression expression) {
+        return operations.stream()
+                .filter(e -> e.matches(expression))
+                .map(e -> e.apply(expression))
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new);
     }
 }

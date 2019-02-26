@@ -1,13 +1,16 @@
 package at.nacs.ex5thecalculator.model;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.Builder;
+import lombok.Value;
+import org.springframework.stereotype.Component;
 
-@RequiredArgsConstructor
-@Data
+@Value
+@Builder
 public class Expression {
 
-    private final Double number1;
-    private final Double number2;
-    private final String symbol;
+    private double number1;
+    private double number2;
+    private String symbol;
+
+
 }
