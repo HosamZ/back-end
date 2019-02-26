@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Value
-@RequiredArgsConstructor
 public class World {
     public String getName() {
         return "World";

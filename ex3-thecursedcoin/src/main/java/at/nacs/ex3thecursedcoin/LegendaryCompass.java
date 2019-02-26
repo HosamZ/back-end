@@ -1,9 +1,15 @@
 package at.nacs.ex3thecursedcoin;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+@Component
+@RequiredArgsConstructor
 public class LegendaryCompass {
 
-    public String find(){
+    private final CursedCoin cursedCoin;
 
+    public String findCursedCoin() {
+        return "I found the " + cursedCoin.getClass().getSimpleName()+ "!";
     }
-
 }
