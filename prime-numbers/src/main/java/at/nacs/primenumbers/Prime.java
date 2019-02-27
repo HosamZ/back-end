@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 @Value
 public class Prime {
 
-    public boolean isPrime(Integer candidate) {
+    public boolean isPrime(Integer candidate) throws IllegalStateException {
         return IntStream.range(2, candidate)
                 .noneMatch(e -> ifPrime(candidate, e));
     }

@@ -20,7 +20,9 @@ class PrimeTest {
             "true, 5",
             "true, 13",
             "false, 28",
-            "false, 22"
+            "false, 22",
+            "false,0",
+            "false,1"
     })
     @Test
     void isPrime(boolean expected, int number) {
