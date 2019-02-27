@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 class PrimeAdderTest {
 
@@ -12,9 +14,11 @@ class PrimeAdderTest {
 
     @Test
     void sum() {
-        long primes = primeAdder.getPrimesSum(100);
+        int primeRange = 100;
 
-        System.out.println(primes);
+        long actual = primeAdder.getPrimesSum(primeRange);
+        long expected = 24133;
 
+        assertEquals(expected, actual);
     }
 }

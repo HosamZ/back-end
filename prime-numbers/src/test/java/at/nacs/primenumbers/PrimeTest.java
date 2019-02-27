@@ -24,10 +24,8 @@ class PrimeTest {
     })
     @Test
     void isPrime(boolean expected, int number) {
-
         boolean result = prime.isPrime(number);
 
         assertEquals(expected, result);
-
     }
 }
