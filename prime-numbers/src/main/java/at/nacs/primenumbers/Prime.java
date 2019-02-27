@@ -1,6 +1,5 @@
 package at.nacs.primenumbers;
 
-import lombok.Builder;
 import lombok.Value;
 import org.springframework.stereotype.Component;
 
