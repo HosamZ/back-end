@@ -9,15 +9,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class PrimeAdderTest {
 
+    private static final int EXPECTED_SUM = 24133;
+    private static final int PRIME_RANGE = 100;
     @Autowired
     PrimeAdder primeAdder;
 
     @Test
     void sum() {
-        int primeRange = 100;
+        long actual = primeAdder.getPrimesSum(PRIME_RANGE);
 
-        long actual = primeAdder.getPrimesSum(primeRange);
-        long expected = 24133;
+        long expected = EXPECTED_SUM;
 
         assertEquals(expected, actual);
     }
