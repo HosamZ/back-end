@@ -16,15 +16,16 @@ class PrimeTest {
 
     @ParameterizedTest
     @CsvSource({
+            "true,17",
             "true, 2",
             "true, 5",
+            "true, 3",
             "true, 13",
             "false, 28",
             "false, 22",
             "false,0",
             "false,1"
     })
-    @Test
     void isPrime(boolean expected, int number) {
         boolean result = prime.isPrime(number);
 

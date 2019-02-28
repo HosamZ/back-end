@@ -9,8 +9,12 @@ import java.util.stream.IntStream;
 @Value
 public class Prime {
 
-    public boolean isPrime(Integer candidate) throws IllegalStateException {
+    public boolean isPrime(Integer candidate) throws IllegalArgumentException {
+        if (candidate.equals(1)||candidate.equals(0)){
+            return false;
+        }
         return IntStream.range(2, candidate)
+                .peek(e -> System.out.println(e))
                 .noneMatch(e -> nonPrimeNumber(candidate, e));
     }
 
