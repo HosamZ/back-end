@@ -11,10 +11,10 @@ public class Prime {
 
     public boolean isPrime(Integer candidate) throws IllegalStateException {
         return IntStream.range(2, candidate)
-                .noneMatch(e -> ifPrime(candidate, e));
+                .noneMatch(e -> nonPrimeNumber(candidate, e));
     }
 
-    private boolean ifPrime(int candidate, int divisor) {
+    private boolean nonPrimeNumber(int candidate, int divisor) {
         return candidate % divisor == 0;
     }
 }
