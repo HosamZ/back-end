@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 @Value
 public class Prime {
 
-    public boolean isPrime(Integer candidate) throws IllegalArgumentException {
+    public boolean isPrime(Integer candidate)  {
         if (candidate < 2) {
             return false;
         }
