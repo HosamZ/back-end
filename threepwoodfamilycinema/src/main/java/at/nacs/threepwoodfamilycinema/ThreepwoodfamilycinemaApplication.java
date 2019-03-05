@@ -1,13 +1,13 @@
-package at.nacs.ex4theenglishgentleman;
+package at.nacs.threepwoodfamilycinema;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Ex4TheenglishgentlemanApplication {
+public class ThreepwoodfamilycinemaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Ex4TheenglishgentlemanApplication.class, args);
+        SpringApplication.run(ThreepwoodfamilycinemaApplication.class, args);
     }
 
 }

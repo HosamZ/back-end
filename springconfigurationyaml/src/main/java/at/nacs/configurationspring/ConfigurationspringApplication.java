@@ -1,13 +1,13 @@
-package at.nacs.ex4theenglishgentleman;
+package at.nacs.configurationspring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Ex4TheenglishgentlemanApplication {
+public class ConfigurationspringApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Ex4TheenglishgentlemanApplication.class, args);
+        SpringApplication.run(ConfigurationspringApplication.class, args);
     }
 
 }

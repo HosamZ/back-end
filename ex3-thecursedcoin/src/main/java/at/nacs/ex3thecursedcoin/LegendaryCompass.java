@@ -10,6 +10,6 @@ public class LegendaryCompass {
     private final CursedCoin cursedCoin;
 
     public String findCursedCoin() {
-        return "I found the " + cursedCoin.getClass().getSimpleName()+ "!";
+        return "I found the " + cursedCoin.getClass().getSimpleName() + "!";
     }
 }

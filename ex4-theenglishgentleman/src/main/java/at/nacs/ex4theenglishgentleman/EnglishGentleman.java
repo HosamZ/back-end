@@ -25,7 +25,7 @@ public class EnglishGentleman {
 
     public void read(Newspaper newspaper) {
         monocle.read(newspaper);
-        read=true;
+        read = true;
 
     }
 

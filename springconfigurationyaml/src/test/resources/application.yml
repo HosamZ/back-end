@@ -1,0 +1,9 @@
+word:
+  load: fantasticFour
+number:
+  load: 369
+daysOfWeek:
+  load: day1, day2
+sauna:
+  availableSeats: 4
+  temperature: 14

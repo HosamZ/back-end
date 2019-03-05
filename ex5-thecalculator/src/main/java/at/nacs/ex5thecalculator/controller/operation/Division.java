@@ -14,7 +14,7 @@ public class Division implements Operation {
 
     @Override
     public double apply(Expression expression) {
-        if (expression.getNumber2()==0){
+        if (expression.getNumber2() == 0) {
             return Double.POSITIVE_INFINITY;
         }
         return expression.getNumber1() / expression.getNumber2();

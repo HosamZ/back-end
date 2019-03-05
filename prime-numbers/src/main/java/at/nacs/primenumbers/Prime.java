@@ -1,15 +1,13 @@
 package at.nacs.primenumbers;
 
-import lombok.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.IntStream;
 
 @Component
-@Value
 public class Prime {
 
-    public boolean isPrime(Integer candidate)  {
+    public boolean isPrime(Integer candidate) {
         if (candidate < 2) {
             return false;
         }
