@@ -7,3 +7,20 @@ daysOfWeek:
 sauna:
   availableSeats: 4
   temperature: 14
+
+library:
+  harryPotter: 3
+  foundation: 2
+  lordOfTheRings: 4
+objects:
+  ballerinas:
+    - name: ballerinas
+      performance: 1
+    - name: ballerinas
+      performance: 2
+    - name: ballerinas
+      performance: 3
+    - name: ballerinas
+      performance: 4
+    - name: ballerinas
+      performance: 5
