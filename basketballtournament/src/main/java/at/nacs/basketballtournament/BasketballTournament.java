@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Queue;
 
+import static java.lang.System.*;
+
 @Component
 @RequiredArgsConstructor
 public class BasketballTournament {
@@ -13,15 +15,14 @@ public class BasketballTournament {
     private final Tournament tournament;
 
     public void start() {
-        System.out.println("--------------------------------------");
-        System.out.println("Welcome to the street basketball tournament! ");
-        System.out.println("These are the teams who signed up: ");
+        out.println("--------------------------------------");
+        out.println("Welcome to the street basketball tournament! ");
+        out.println("These are the teams who signed up: ");
         Queue<BasketballTeam> teams = loader.getTeams();
-        teams.stream()
-                .forEach(e ->
-                        System.out.println("TeamLoader: " + e.getName()
+        teams.forEach(e ->
+                        out.println("TeamLoader: " + e.getName()
                                 + " | Players: " + e.getPlayers()));
-        System.out.println("-------------------------------------");
+        out.println("-------------------------------------");
         tournament.play(teams);
 
         // tournament play

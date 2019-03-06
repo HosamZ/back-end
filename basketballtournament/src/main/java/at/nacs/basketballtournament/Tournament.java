@@ -12,6 +12,7 @@ public class Tournament {
     private Random random = new Random();
 
     public void play(Queue<BasketballTeam> teams) {
+
         IntStream.generate(()-> 0)
                 .takeWhile(n-> teams.size()>1)
                 .forEach(n-> playOneRound(teams));
