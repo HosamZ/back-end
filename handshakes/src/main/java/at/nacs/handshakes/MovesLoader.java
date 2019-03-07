@@ -1,4 +1,4 @@
-package at.nacs.configurationspring;
+package at.nacs.handshakes;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 @Component
-@ConfigurationProperties("library")
-public class BookShopLoader {
+@ConfigurationProperties("shop")
+public class MovesLoader {
     @Setter
     @Getter
-    private Map<String, Integer> books;
+    private Map<Integer, String> moves;
 }
