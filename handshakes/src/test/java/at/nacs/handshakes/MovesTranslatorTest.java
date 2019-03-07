@@ -13,6 +13,7 @@ import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
@@ -23,25 +24,22 @@ class MovesTranslatorTest {
 
     @ParameterizedTest
     @CsvSource({
-            "12, move2",
-            "31, move3",
-            "15, move5",
-            "61, move6",
-            "91, move9",
+            "1, move1",
+            "2, move2",
+            "12, move1 move2",
+            "21, move2 move1",
+            "72717, move2 move1"
     })
-    void testRightTranslateValues(int price, String expected) {
-        Optional<String> actual = movesTranslator.translateToMoves(price);
-
-        assertEquals(expected,actual.get());
-    }
-    @ParameterizedTest
-    @CsvSource({
-            "11, Optional.empty",
-            "101010,Optional.empty ",
-    })
-    void testWrongTranslations(int price,String expected){
-        Optional<String> actual = movesTranslator.translateToMoves(price);
+    void testRightTranslateValues(int price, String moves) {
+        List<String> actual = movesTranslator.translateToMoves(price);
+        List<String> expected = List.of(moves.split(" "));
 
         assertEquals(expected,actual);
+    }
+    @Test
+    void testWrongTranslations(){
+        List<String> actual = movesTranslator.translateToMoves(33);
+
+        assertTrue(actual.isEmpty());
     }
 }
