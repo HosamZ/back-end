@@ -1,8 +1,6 @@
 package at.nacs.morse;
 
 import org.junit.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -22,23 +20,23 @@ public class MorseEndpointTest {
     public void encode() {
         String letter = "a";
 
-        String actual = restTemplate.postForObject("/morse", letter, String.class);
+        String actual = restTemplate.postForObject(url, letter, String.class);
         String expected = ":D";
 
-     assertThat(actual).isEqualTo(expected);
+        assertThat(actual).isEqualTo(expected);
         assertThat(actual).isNotNull();
     }
-
-    @ParameterizedTest
-    @CsvSource({
-            "a,.-",
-            "b,-..."
-    })
-    void postLetter(String letter, String encodedLetter) {
-//        MorseEndpoint morseEndpoint = new MorseEndpoint(letter,encodedLetter);
-//        String expected = restTemplate.postForObject(url, encoder, String.class);
-//        assertThat().isEqualTo(expected);
-
-
-    }
+//
+//    @ParameterizedTest
+//    @CsvSource({
+//            "a,.-",
+//            "b,-..."
+//    })
+//    void postLetter(String letter, String encodedLetter) {
+////        MorseEndpoint morseEndpoint = new MorseEndpoint(letter,encodedLetter);
+////        String expected = restTemplate.postForObject(url, encoder, String.class);
+////        assertThat().isEqualTo(expected);
+//
+//
+//    }
 }
