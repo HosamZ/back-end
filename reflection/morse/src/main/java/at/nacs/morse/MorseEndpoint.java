@@ -1,32 +1,26 @@
 package at.nacs.morse;
 
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RestController
-@RequestMapping("/morseendpoint")
+@RequestMapping("/morse")
 @RequiredArgsConstructor
 public class MorseEndpoint {
 
-    private final Morse morse;
+    private final Encoder encoder;
 
     @PostMapping
-    List<String> enocde(@RequestBody String message){
-        Map<String, String> morseCode1 =morse.getTranslate();
-        String lowerCaseMsg = message.toLowerCase();
-        return Arrays.stream(lowerCaseMsg.split(""))
-                .flatMap(Stream::of)
-                .filter(morseCode1::containsKey)
-                .map(morseCode1::get)
-                .collect(Collectors.toList());
+    String encode(@RequestBody String letter) {
+        return encoder.encode(letter);
     }
 }

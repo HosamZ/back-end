@@ -1,0 +1,7 @@
+server:
+  port: 9001
+
+translation:
+  morse:
+    a: .-
+    b: -...
