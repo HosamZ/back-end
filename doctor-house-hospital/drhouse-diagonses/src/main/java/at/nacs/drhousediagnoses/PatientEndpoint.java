@@ -1,20 +1,18 @@
-package at.nacs.morse;
+package at.nacs.drhousediagnoses;
 
-import lombok.RequiredArgsConstructor;
+import at.nacs.drhousediagnoses.domain.Patient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/morse")
-@RequiredArgsConstructor
-public class MorseEndpoint {
-
-    private final Encoder encoder;
+@RequestMapping("/patients")
+public class PatientEndpoint {
 
     @PostMapping
-    String encode(@RequestBody String letter) {
-        return encoder.encode(letter);
+    Patient getPatient(@RequestBody Patient patient) {
+        patient.setDiagnosis("Dota");
+        return patient;
     }
 }
