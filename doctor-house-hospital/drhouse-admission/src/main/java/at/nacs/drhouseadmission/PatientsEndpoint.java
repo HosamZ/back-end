@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.UUID;
+
 import static java.lang.String.valueOf;
 
 @RestController
@@ -22,7 +24,8 @@ public class PatientsEndpoint {
 
     @PostMapping
     Patient add(@RequestBody Patient patient) {
-        patient.setId(valueOf(Math.random()));
+//        patient.setId(valueOf(Math.random()));
+        patient.setId(UUID.randomUUID().toString());
         restTemplate.postForObject(url, patient, Patient.class);
         return patient;
     }
