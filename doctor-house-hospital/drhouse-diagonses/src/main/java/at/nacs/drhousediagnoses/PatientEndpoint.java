@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PatientEndpoint {
 
     @PostMapping
-    Patient getPatient(@RequestBody Patient patient) {
+    Patient Diagnose(@RequestBody Patient patient) {
         patient.setDiagnosis("Dota");
         return patient;
     }

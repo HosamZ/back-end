@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.UUID;
 
 import static java.lang.String.valueOf;
+import static java.util.UUID.randomUUID;
 
 @RestController
 @RequestMapping("/patients")
@@ -17,15 +18,12 @@ public class PatientsEndpoint {
 
     private final RestTemplate restTemplate;
 
-//    String url= "http://localhost:9002/patients";
-
     @Value("${hospital.url}")
     private String url;
 
     @PostMapping
-    Patient add(@RequestBody Patient patient) {
-//        patient.setId(valueOf(Math.random()));
-        patient.setId(UUID.randomUUID().toString());
+    Patient addmission(@RequestBody Patient patient) {
+        patient.setId(randomUUID().toString());
         restTemplate.postForObject(url, patient, Patient.class);
         return patient;
     }
