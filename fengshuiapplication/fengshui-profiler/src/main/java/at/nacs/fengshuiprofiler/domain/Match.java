@@ -1,14 +1,14 @@
 package at.nacs.fengshuiprofiler.domain;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@RequiredArgsConstructor
+@Builder
 public class Match {
 
-    private final Profile profile1;
-    private final Profile profile2;
-        private final String signCompatibility;
-    private final String loveCompatibility;
+    private Profile profile1;
+    private Profile profile2;
+    private String signCompatibility;
+    private String loveCompatibility;
 }

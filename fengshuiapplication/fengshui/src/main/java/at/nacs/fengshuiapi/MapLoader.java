@@ -1,6 +1,5 @@
 package at.nacs.fengshuiapi;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -16,6 +15,6 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class MapLoader {
 
-    private final Map<String , String > signs;
+    private final Map<String, String> signs;
 
 }

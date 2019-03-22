@@ -1,4 +1,4 @@
-package at.nacs.fengshuiapi.domain;
+package at.nacs.fengshuiapi;
 
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.core.convert.converter.Converter;

@@ -1,13 +1,15 @@
 package at.nacs.fengshuiprofiler.domain;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
 
 @Data
-@RequiredArgsConstructor
+@Builder
 public class Profile {
-    private final LocalDate birthday;
-    private final String sign;
+
+    private LocalDate birthday;
+    private String sign;
+
 }

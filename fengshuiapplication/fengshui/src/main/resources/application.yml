@@ -12,3 +12,6 @@ symbol:
     Dog: 10
     Pig: 11
     Rat: 12
+
+server:
+  port: 9001
