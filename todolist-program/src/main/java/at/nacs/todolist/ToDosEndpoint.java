@@ -13,7 +13,7 @@ public class ToDosEndpoint {
 
     @GetMapping
     List<ToDo> get() {
-        manager.getAll();
+        return manager.getAll();
     }
 
     @GetMapping("/{id}")
