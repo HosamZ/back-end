@@ -4,39 +4,31 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/todos")
 @RequiredArgsConstructor
 public class ToDosEndpoint {
-
-    private final ToDoRepository toDoRepository;
+    private final ToDoManager manager;
 
     @GetMapping
     List<ToDo> get() {
-        return toDoRepository.findAll();
+        manager.getAll();
     }
 
     @GetMapping("/{id}")
     ToDo get(@PathVariable String id) {
-        return toDoRepository.findById(id).orElse(null);
+        return manager.findById(id);
     }
 
     @PostMapping
     ToDo post(@RequestBody ToDo toDo) {
-        return toDoRepository.save(toDo);
+        return manager.save(toDo);
     }
 
     @PutMapping("/{id}/done")
     ToDo done(@PathVariable String id) {
-        Optional<ToDo> byId = toDoRepository.findById(id);
-        if (byId.isEmpty()) {
-            return null;
-        }
-        byId.get().setDone(true);
-        return toDoRepository.save(byId.get());
-
+        return manager.done(id);
         // find by id
         // if you find nothing, return
         // get todo from optional
@@ -46,6 +38,6 @@ public class ToDosEndpoint {
 
     @DeleteMapping("/{id}")
     void delete(@PathVariable String id) {
-        toDoRepository.deleteById(id);
+        manager.delete(id);
     }
 }
