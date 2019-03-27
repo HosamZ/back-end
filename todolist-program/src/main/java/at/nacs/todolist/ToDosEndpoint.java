@@ -9,15 +9,16 @@ import java.util.List;
 @RequestMapping("/todos")
 @RequiredArgsConstructor
 public class ToDosEndpoint {
+
     private final ToDoManager manager;
 
     @GetMapping
-    List<ToDo> get() {
-        return manager.getAll();
+    List<ToDo> find() {
+        return manager.findAll();
     }
 
     @GetMapping("/{id}")
-    ToDo get(@PathVariable String id) {
+    ToDo findById(@PathVariable String id) {
         return manager.findById(id);
     }
 
@@ -29,11 +30,6 @@ public class ToDosEndpoint {
     @PutMapping("/{id}/done")
     ToDo done(@PathVariable String id) {
         return manager.done(id);
-        // find by id
-        // if you find nothing, return
-        // get todo from optional
-        // update the done value
-        // save the todo in the database
     }
 
     @DeleteMapping("/{id}")
@@ -41,3 +37,10 @@ public class ToDosEndpoint {
         manager.delete(id);
     }
 }
+
+
+// find by id
+// if you find nothing, return
+// findById todo from optional
+// update the done value
+// save the todo in the database

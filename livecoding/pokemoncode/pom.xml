@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>at.nacs</groupId>
-    <artifactId>twitterboard-program</artifactId>
+    <artifactId>pokemonlive</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>twitterboard-program</name>
+    <name>pokemonlive</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

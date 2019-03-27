@@ -1,16 +1,18 @@
 package at.nacs.todolist;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 @RequiredArgsConstructor
 public class ToDoManager {
 
     private final ToDoRepository toDoRepository;
 
-    public List<ToDo> getAll() {
+    public List<ToDo> findAll() {
         return toDoRepository.findAll();
     }
 
@@ -22,13 +24,14 @@ public class ToDoManager {
         return toDoRepository.save(toDo);
     }
 
-    public ToDo done(String id) {
+    public ToDo done(String id) {//void?
         Optional<ToDo> byId = toDoRepository.findById(id);
         if (byId.isEmpty()) {
             return null;
         }
-        byId.get().setDone(true);
-        return toDoRepository.save(byId.get());
+        ToDo toDo = byId.get();
+        toDo.setDone(true);
+        return toDoRepository.save(toDo);
     }
 
     public void delete(String id) {
