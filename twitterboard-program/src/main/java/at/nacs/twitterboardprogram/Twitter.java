@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class Twitter {
@@ -30,7 +31,6 @@ public class Twitter {
         int likes = tweet.getLikes();
         tweet.setLikes(likes + 1);
         repository.save(tweet);
-
     }
 
     public Tweet putComment(String id, String comments) {
@@ -40,7 +40,5 @@ public class Twitter {
         tweet.setComments(listOfComments);
         repository.save(tweet);
         return tweet;
-
     }
-
 }

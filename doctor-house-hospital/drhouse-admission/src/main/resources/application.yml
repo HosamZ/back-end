@@ -1,6 +1,4 @@
 server:
   port: 9001
-
-
 hospital:
   url: http://www.localhost:9002/patients

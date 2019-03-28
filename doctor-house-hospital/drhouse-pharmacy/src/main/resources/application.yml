@@ -1,0 +1,9 @@
+server:
+  port: 9004
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/pharmacy
+pharmacy:
+  cold: antibiotika
+  lupus: antikoagulans

@@ -1,6 +1,5 @@
-package at.nacs.drhousediagnoses;
+package at.nacs.drhousepharmacy;
 
-import at.nacs.drhousediagnoses.domain.Patient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,16 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/patients")
 @RequiredArgsConstructor
+@RequestMapping("/patients")
 public class PatientEndpoint {
 
-    private final DrHouse drHouse;
+    private final Apothecary apothecary;
+
+
     @PostMapping
-    Patient Diagnose(@RequestBody Patient patient) {
-        drHouse.checkOn(patient);
-        drHouse.sendTo(patient);
-        return patient;
+    Patient post(@RequestBody Patient patient){
+        return apothecary.meditate(patient);
     }
 
 }

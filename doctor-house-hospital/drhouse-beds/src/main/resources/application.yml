@@ -1,0 +1,9 @@
+server:
+  port: 9003
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/beds
+treatment:
+  brokenleg: fixLeg
+  backache: massage
