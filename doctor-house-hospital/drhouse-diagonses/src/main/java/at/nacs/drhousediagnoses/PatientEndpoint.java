@@ -19,5 +19,4 @@ public class PatientEndpoint {
         drHouse.sendTo(patient);
         return patient;
     }
-
 }

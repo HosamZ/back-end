@@ -22,8 +22,8 @@ public class Nurse {
     private Map<String, String> treatment;
 
     Patient treat(Patient patient) {
-        String result = treatment.getOrDefault(patient.getDiagnosis(), "lupus");
-        patient.setTreatment(result);
+        String treatment = this.treatment.getOrDefault(patient.getDiagnosis(), "lupus");
+        patient.setTreatment(treatment);
         repository.save(patient);
         return patient;
     }

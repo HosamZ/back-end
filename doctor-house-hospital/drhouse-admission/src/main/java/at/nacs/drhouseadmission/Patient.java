@@ -1,4 +1,4 @@
-package at.nacs.drhouseadmission.domain;
+package at.nacs.drhouseadmission;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

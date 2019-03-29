@@ -13,7 +13,6 @@ public class PatientEndpoint {
 
     private final Apothecary apothecary;
 
-
     @PostMapping
     Patient post(@RequestBody Patient patient){
         return apothecary.meditate(patient);
