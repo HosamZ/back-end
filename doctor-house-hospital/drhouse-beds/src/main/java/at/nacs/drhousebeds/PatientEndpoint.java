@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("/patients")
 public class PatientEndpoint {
+
     private final Nurse nurse;
 
     @PostMapping

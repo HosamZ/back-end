@@ -4,6 +4,7 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost/beds
-treatment:
-  brokenleg: fixLeg
-  backache: massage
+dataset:
+  treatment:
+    brokenleg: fixLeg
+    backache: massage

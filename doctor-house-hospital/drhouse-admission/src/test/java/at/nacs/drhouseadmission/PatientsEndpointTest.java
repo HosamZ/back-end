@@ -20,7 +20,7 @@ class PatientsEndpointTest {
 
     @Test
     void add() {
-        Patient patient = Patient.builder().name("ahmad").symptoms("cancer").build();
+        Patient patient = Patient.builder().name("ahmad").symptoms("brokenhead").build();
 
         Patient actual = testRestTemplate.postForObject(url, patient, Patient.class);
 

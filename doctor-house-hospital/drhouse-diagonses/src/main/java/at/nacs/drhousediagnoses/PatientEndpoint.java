@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class PatientEndpoint {
 
     private final DrHouse drHouse;
+
     @PostMapping
     Patient Diagnose(@RequestBody Patient patient) {
-        drHouse.checkOn(patient);
+        drHouse.obeserve(patient);
         drHouse.sendTo(patient);
         return patient;
     }

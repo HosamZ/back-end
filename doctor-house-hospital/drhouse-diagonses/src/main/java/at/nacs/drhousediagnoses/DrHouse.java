@@ -15,12 +15,13 @@ import java.util.Map;
 public class DrHouse {
 
     private final RestTemplate restTemplate;
+
     @Setter
     Map<String, String> report;
 
     public void sendTo(Patient patient) {
-        String pharmacyurl = "http://localhost:9004";
-        String bedsurl = "http://localhost:9003";
+        String pharmacyurl = "http://localhost:9004/patients";
+        String bedsurl = "http://localhost:9003/patients";
         String result = report.getOrDefault(patient.getSymptoms(), "pharmacy-section");
         patient.setSymptoms(result);
         if (result.equals("pharmacy-section")) {
@@ -29,7 +30,7 @@ public class DrHouse {
         restTemplate.postForObject(bedsurl, patient, Patient.class);
     }
 
-    public void checkOn(Patient patient) {
+    public void obeserve(Patient patient) {
         patient.setDiagnosis("lupus");
     }
 }
