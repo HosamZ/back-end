@@ -17,7 +17,7 @@ public class DrHouse {
     private final RestTemplate restTemplate;
 
     @Setter
-    Map<String, String> report;
+    private Map<String, String> report;
 
     public void sendTo(Patient patient) {
         String pharmacyurl = "http://localhost:9004/patients";
@@ -30,7 +30,7 @@ public class DrHouse {
         restTemplate.postForObject(bedsurl, patient, Patient.class);
     }
 
-    public void obeserve(Patient patient) {
+    public void observe(Patient patient) {
         patient.setDiagnosis("lupus");
     }
 }

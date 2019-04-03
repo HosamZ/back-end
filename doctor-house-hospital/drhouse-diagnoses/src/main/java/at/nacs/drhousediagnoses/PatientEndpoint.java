@@ -16,7 +16,7 @@ public class PatientEndpoint {
 
     @PostMapping
     Patient Diagnose(@RequestBody Patient patient) {
-        drHouse.obeserve(patient);
+        drHouse.observe(patient);
         drHouse.sendTo(patient);
         return patient;
     }
