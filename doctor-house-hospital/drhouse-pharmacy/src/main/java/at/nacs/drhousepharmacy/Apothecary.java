@@ -18,9 +18,11 @@ public class Apothecary {
     private Map<String, String> meditation;
 
     public Patient meditate(Patient patient) {
-        String sicknessResult = meditation.getOrDefault(patient.getDiagnosis(), "lupus");
+        System.out.println("=======TESTMAP: " + meditation);
+        String sicknessResult = meditation.getOrDefault(patient.getDiagnosis(), "painkiller");
         patient.setMedicine(sicknessResult);
         repository.save(patient);
         return patient;
     }
+
 }

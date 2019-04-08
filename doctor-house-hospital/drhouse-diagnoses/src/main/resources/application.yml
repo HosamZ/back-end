@@ -1,6 +1,11 @@
 server:
   port: 9002
+
 doctor:
   report:
-    brokenleg: beds-section
+    headache: bloodPressure
+    fever: malaria
+  sections:
+    bloodPressure: beds-section
+    malaria: pharmacy-section
     lupus: pharmacy-section

@@ -1,5 +1,6 @@
 package at.nacs.drhousebeds;
 
+import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +12,7 @@ import java.util.Map;
 public class TreatmentCOnfiguration {
 
     @Setter
+    @Getter
     private Map<String, String> treatment;
 
     @Bean

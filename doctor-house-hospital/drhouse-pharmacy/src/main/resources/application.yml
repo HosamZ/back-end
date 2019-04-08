@@ -5,5 +5,6 @@ spring:
     mongodb:
       uri: mongodb://localhost/pharmacy
 pharmacy:
-  cold: antibiotika
-  lupus: antikoagulans
+  meditation:
+    cold: antibiotika
+    lupus: antikoagulans
