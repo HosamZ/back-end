@@ -1,4 +1,4 @@
-package at.nacs.drhousebeds;
+package at.nacs.drhousebeds.configuration;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 @Configuration
 @ConfigurationProperties("dataset")
-public class TreatmentCOnfiguration {
+public class TreatmentConfiguration {
 
     @Setter
     @Getter

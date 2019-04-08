@@ -46,16 +46,16 @@ class PersonManagerTest {
     void findAll() {
         List<Person> allPersons = manager.findAll();
         System.out.println("===========" + allPersons);
-//        assertThat(allPersons).isNotEmpty();
+        assertThat(allPersons).isNotEmpty();
 
-//        assertThat(allPersons.size()).isEqualTo(2);
+        assertThat(allPersons.size()).isEqualTo(2);
     }
 
     @Test
     void findAllPersonsWithFriend() {
         Long id = personwithfriends.getId();
         Long id1 = personwithnofriends.getId();
-        manager.makeFriend(id,id1);
+        manager.makeFriend(id, id1);
         List<Person> allPersonsWithFriend = manager.findAllPersonsWithFriend();
         assertThat(allPersonsWithFriend.size()).isEqualTo(2);
     }
@@ -69,9 +69,6 @@ class PersonManagerTest {
 
     @Test
     void save() {
-//        Person person = new Person();
-//        person.setName("Leen");
-//        manager.save(person.getName());
         manager.save(personwithfriends.getName());
         List<Person> all = manager.findAll();
         assertThat(all).contains(personwithfriends);
@@ -81,13 +78,15 @@ class PersonManagerTest {
     void makeFriend() {
         Long id1 = personwithfriends.getId();
         Long id2 = personwithnofriends.getId();
-        List<Person> people = manager.makeFriend(id1, id2);
-        System.out.println("=======1111111111"+people);
+        List<Person> asFriends = manager.makeFriend(id1, id2);
+        System.out.println("=======1111111111" + asFriends);
 
         List<Person> friends1 = personwithnofriends.getFriends();
         List<Person> friends2 = personwithfriends.getFriends();
-        System.out.println("=====111"+friends1);
-        System.out.println("=====222"+friends2);
+        System.out.println("=====111" + friends1);
+        System.out.println("=====222" + friends2);
+
+        assertThat(asFriends.size()).isEqualTo(2);
 
 
 //        assertThat(friends1).contains(friends2.get(1));
@@ -106,5 +105,16 @@ class PersonManagerTest {
 
     @Test
     void makeUnfriend() {
+        Long person1 = personwithfriends.getId();
+        Long person2 = personwithnofriends.getId();
+        List<Person> newFriends = manager.makeFriend(person1, person2);
+
+        assertThat(newFriends).isNotEmpty();
+
+        manager.makeUnfriend(person1, person2);
+
+        List<Person> allPersonsWithFriend = manager.findAllPersonsWithFriend();
+
+        assertThat(allPersonsWithFriend).isNull();
     }
 }

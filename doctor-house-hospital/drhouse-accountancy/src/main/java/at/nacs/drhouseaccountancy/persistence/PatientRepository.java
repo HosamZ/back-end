@@ -1,4 +1,4 @@
-package at.nacs.drhouseaccountancy;
+package at.nacs.drhouseaccountancy.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

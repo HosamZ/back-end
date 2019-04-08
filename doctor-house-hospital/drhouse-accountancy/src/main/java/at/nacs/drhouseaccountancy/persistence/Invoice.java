@@ -1,19 +1,16 @@
-package at.nacs.drhouseaccountancy;
+package at.nacs.drhouseaccountancy.persistence;
 
 import lombok.Data;
-import org.springframework.data.repository.cdi.Eager;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-import static javax.persistence.FetchType.*;
-
 @Data
 public class Invoice {
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     private Long id;
 
     //(fetch = EAGER)still not sure

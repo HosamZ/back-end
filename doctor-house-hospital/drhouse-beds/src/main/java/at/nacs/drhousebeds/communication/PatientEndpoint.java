@@ -1,12 +1,12 @@
-package at.nacs.drhousebeds;
+package at.nacs.drhousebeds.communication;
 
-import at.nacs.drhousebeds.domain.Patient;
+import at.nacs.drhousebeds.logic.Nurse;
+import at.nacs.drhousebeds.persistence.Patient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 @RequiredArgsConstructor
 @RestController
@@ -18,5 +18,10 @@ public class PatientEndpoint {
     @PostMapping
     Patient post(@RequestBody Patient patient) {
         return nurse.treat(patient);
+    }
+
+    @PostMapping
+    void postToAccountancy(@RequestBody Patient patient){
+        nurse.sendToAccountancy(patient);
     }
 }

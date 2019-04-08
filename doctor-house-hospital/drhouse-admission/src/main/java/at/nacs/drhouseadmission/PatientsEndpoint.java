@@ -1,5 +1,6 @@
 package at.nacs.drhouseadmission;
 
+import at.nacs.drhouseadmission.domain.Patient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

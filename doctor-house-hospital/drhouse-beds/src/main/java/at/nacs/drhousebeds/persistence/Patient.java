@@ -1,4 +1,4 @@
-package at.nacs.drhousebeds.domain;
+package at.nacs.drhousebeds.persistence;
 
 import lombok.Data;
 

@@ -1,6 +1,7 @@
-package at.nacs.drhousebeds;
+package at.nacs.drhousebeds.logic;
 
-import at.nacs.drhousebeds.domain.Patient;
+import at.nacs.drhousebeds.persistence.PatientRepository;
+import at.nacs.drhousebeds.persistence.Patient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -16,11 +17,16 @@ public class Nurse {
 
     private final Map<String, String> treatment;
 
-    Patient treat(Patient patient) {
+
+    public Patient treat(Patient patient) {
         String proceduresAdministered = treatment.get(patient.getDiagnosis());
         patient.setTreatment(proceduresAdministered);
         repository.save(patient);
         return patient;
+    }
+
+    public void sendToAccountancy(Patient patient) {
+        restTemplate.postForEntity("http://localhost/9005/patients",patient,Patient.class);
     }
 
 //    public Patient post(Patient patient) {
