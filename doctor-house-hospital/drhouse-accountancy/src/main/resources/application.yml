@@ -9,5 +9,9 @@ spring:
     hibernate:
       ddl-auto: update
 costs:
-  TREATMENT: 130
+  takesomerest: 130
   MEDICINE: 13
+  antibiotika: 30
+  antikoagulans: 40
+
+  ignorecase
