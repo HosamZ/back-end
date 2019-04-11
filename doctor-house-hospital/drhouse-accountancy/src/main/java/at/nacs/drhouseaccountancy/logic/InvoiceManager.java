@@ -1,14 +1,11 @@
 package at.nacs.drhouseaccountancy.logic;
 
-import at.nacs.drhouseaccountancy.persistence.Invoice;
-import at.nacs.drhouseaccountancy.persistence.InvoiceRepository;
-import at.nacs.drhouseaccountancy.persistence.Kind;
-import at.nacs.drhouseaccountancy.persistence.PatientDTO;
+import at.nacs.drhouseaccountancy.Configuration;
+import at.nacs.drhouseaccountancy.persistence.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -17,10 +14,11 @@ import java.util.Optional;
 public class InvoiceManager {
 
   private final InvoiceRepository invoiceRepository;
+  //  private Map<String, Double> prices;
+  private final Configuration configuration;
   private Invoice invoice;
-  private final Map<String, Double> costs;
 
-  public void createInvoice(PatientDTO patientDTO) {
+  public void createInvoice(PatientDTO patientDTO, Patient patient) {
     invoice = new Invoice();
     invoice.setDiagnosis(patientDTO.getDiagnosis());
     invoice.setSymptoms(patientDTO.getSymptoms());
@@ -65,9 +63,9 @@ public class InvoiceManager {
 
   public Double calculateCosts(PatientDTO patientDTO) {
     if (Objects.equals(patientDTO.getMedicine(), null)) {
-      return costs.get(patientDTO.getTreatment());
+      return configuration.getPrices().get(patientDTO.getTreatment());
     }
-    return costs.get(patientDTO.getMedicine());
+    return configuration.getPrices().get(patientDTO.getMedicine());
 //    accountant.makeCalculation(entry);
 
   }

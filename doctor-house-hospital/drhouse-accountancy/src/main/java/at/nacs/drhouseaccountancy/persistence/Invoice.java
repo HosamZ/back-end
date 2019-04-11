@@ -2,14 +2,12 @@ package at.nacs.drhouseaccountancy.persistence;
 
 import lombok.Data;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Data
+@Entity
 public class Invoice {
 
   @Id

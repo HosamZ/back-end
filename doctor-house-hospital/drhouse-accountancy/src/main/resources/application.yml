@@ -9,8 +9,9 @@ spring:
     hibernate:
       ddl-auto: update
 costs:
-  takesomerest: 130
-  MEDICINE: 13
-  antibiotika: 30
-  antikoagulans: 40
+  prices:
+    takesomerest: 130
+    MEDICINE: 13
+    antibiotika: 30
+    antikoagulans: 40
 

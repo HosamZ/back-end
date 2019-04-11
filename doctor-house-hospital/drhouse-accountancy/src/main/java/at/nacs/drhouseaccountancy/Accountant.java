@@ -6,9 +6,6 @@ import at.nacs.drhouseaccountancy.persistence.Patient;
 import at.nacs.drhouseaccountancy.persistence.PatientDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -17,30 +14,30 @@ public class Accountant {
   private final PatientManager patientManager;
   private final PatientConverter converter;
   private final InvoiceManager invoiceManager;
-  private final RestTemplate restTemplate;
-  private final Map<String, String> costs;
+  // private final Map<String, String> costs;
 
 
-  public void takeCareOfPatient(PatientDTO patientDTO) {
+  public void post(PatientDTO patientDTO) {
     Patient patient = converter.convert(patientDTO);
     patientManager.savePatient(patient);
-    patientManager.calculateCosts();
-    patientManager.createInvoice(patientDTO, patient);
+    // patientManager.calculateCosts();
+    //patientManager.createInvoice(patientDTO, patient);
+    invoiceManager.createInvoice(patientDTO, patient);
 
   }
 
   public void makeInvoice(PatientDTO patientDTO) {
-    invoiceManager.createInvoice(patientDTO);
+    //  invoiceManager.createInvoice(patientDTO);
   }
 //
 //  public void updateOneInvoice(Long id) {
 //    invoiceManager.update(id);
 //  }
 
-  public void saveOnePatient() {
-    patientManager.save();
-
-  }
+//  public void saveOnePatient() {
+//    patientManager.save();
+//
+//  }
 //
 //  public List<Invoice> findInvoices() {
 //    return invoiceManager.findAll();

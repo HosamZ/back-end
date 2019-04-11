@@ -17,7 +17,6 @@ public class PatientsEndpoint {
 
   @PostMapping
   void post(@RequestBody PatientDTO patientDTO) {
-    accountant.takeCareOfPatient(patientDTO);
-
+    accountant.post(patientDTO);
   }
 }
