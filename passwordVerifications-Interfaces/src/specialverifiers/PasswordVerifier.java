@@ -2,8 +2,9 @@ package specialverifiers;
 
 import verifiers.*;
 
-import java.util.Arrays;
 import java.util.List;
+
+import static java.util.Arrays.asList;
 
 public class PasswordVerifier {
 
@@ -13,14 +14,18 @@ public class PasswordVerifier {
                 .map(e -> e.verify(password))
                 .filter(e -> e == true)
                 .count();
-        if (counter >= 3 && verifiers.get(0).verify(password)) {
+        if (counter >= 3 && isOneLowercaseAtLeast(password, verifiers.get(0))) {
             return true;
         }
         return false;
     }
 
+    private boolean isOneLowercaseAtLeast(String password, Verifier verifier) {
+        return verifier.verify(password);
+    }
+
     private List<Verifier> getVerifiers() {
-        return Arrays.asList(new LowercaseVerifier(), new LengthVerifier()
+        return asList(new LowercaseVerifier(), new LengthVerifier()
                 , new NotNullVerifier(), new OneDigitCaseVerifier(), new UppercaseVerifier()
         );
     }

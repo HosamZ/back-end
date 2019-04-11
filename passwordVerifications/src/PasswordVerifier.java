@@ -6,18 +6,26 @@ import java.util.regex.Pattern;
 import static java.util.regex.Pattern.compile;
 
 public class PasswordVerifier {
-    private String lengthCondition = "(?=.{8,})";
-    private String lowercaseCondition = "(?=.*[a-z])";
-    private String uppercaseCondition = "(?=.*[A-Z])";
-    private String oneDigitCondition = "(?=.*[0-9])";
-    private List<String> conditions = Arrays.asList(lengthCondition, lowercaseCondition, uppercaseCondition
-            , oneDigitCondition);
+    private String lengthCondition = ".{8,}$";
+    private String lowercaseCondition = "^(.*[a-z].*)";
+//    private String lowercaseCondition = "^(?=(.*[a-z].*))";
+    private String uppercaseCondition = "(.*[A-Z].*)";
+//    private String uppercaseCondition = "(?=(.*[A-Z].*))";
+    private String oneDigitCondition = "(.*[\\d].*)";
+//    private String oneDigitCondition = "(?=(.*[\\d].*))";
+    private List<String> conditions = Arrays.asList(lowercaseCondition, oneDigitCondition, uppercaseCondition
+            , lengthCondition);
 
     public boolean verify(String password) {
         Pattern condition = getCompileRegex(lengthCondition, lowercaseCondition
                 , uppercaseCondition, oneDigitCondition);
+
         Matcher matcher = condition.matcher(password);
+
         if (matcher.matches()) {
+            for (String conditionn : conditions) {
+                conditionn.matches(password);
+            }
             return true;
         }
         return false;

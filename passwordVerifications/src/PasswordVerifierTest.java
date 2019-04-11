@@ -7,7 +7,7 @@ class PasswordVerifierTest {
 
     @Test
     void verify() {
-        String password = "hosamM1213";
+        String password = "hosaM123";
 
         boolean actual = verifier.verify(password);
         boolean expected = true;

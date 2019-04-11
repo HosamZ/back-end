@@ -1,9 +1,8 @@
 package at.nacs.drhouseaccountancy.communication;
 
-import at.nacs.drhouseaccountancy.persistence.Invoice;
-import at.nacs.drhouseaccountancy.persistence.Patient;
-import at.nacs.drhouseaccountancy.persistence.PatientDTO;
 import at.nacs.drhouseaccountancy.logic.PatientManager;
+import at.nacs.drhouseaccountancy.persistence.Invoice;
+import at.nacs.drhouseaccountancy.persistence.PatientDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,17 +32,15 @@ public class PatientsEndpoint {
     }
 
     @GetMapping("/invoices")
-    List<Patient> findAll() {
-        patientManager.findAllInvoices();
-        List<Patient> allPatient = repository.findAll();
-
-//        return allInvoices;
-        return allPatient;
+    List<Invoice> findAll() {
+        List<Invoice> allInvoices = patientManager.findAllInvoices();
+        return allInvoices;
     }
+
     @PutMapping("/invoices/{id}/paid")
-    void updateInvoice(@RequestBody Long id ){
+    void updateInvoice(@RequestBody Long id) {
         invoice.setId(id);
         invoice.setPaid(true);
-
     }
+
 }

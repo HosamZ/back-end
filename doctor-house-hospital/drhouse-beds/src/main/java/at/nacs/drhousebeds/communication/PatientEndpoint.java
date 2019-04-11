@@ -21,7 +21,7 @@ public class PatientEndpoint {
     }
 
     @PostMapping
-    void postToAccountancy(@RequestBody Patient patient){
+    void postToAccountancy(@RequestBody Patient patient) {
         nurse.sendToAccountancy(patient);
     }
 }
