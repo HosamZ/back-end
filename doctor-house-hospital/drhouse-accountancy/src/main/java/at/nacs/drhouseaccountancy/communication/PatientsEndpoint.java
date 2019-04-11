@@ -13,35 +13,28 @@ import java.util.List;
 @RequestMapping("/patients")
 public class PatientsEndpoint {
 
-    private final PatientDTO patientDTO;
-    private final Invoice invoice;
-    private final PatientManager patientManager;
+  private final PatientDTO patientDTO;
+  private final Invoice invoice;
+  private final PatientManager patientManager;
 
-    @PostMapping
-    void post() {
-        patientManager.savePatient();
-        patientManager.calculateCosts();
-        patientManager.createInvoice(patientDTO);
+  @PostMapping
+  void post() {
+    patientManager.savePatient();
+    patientManager.calculateCosts();
+    patientManager.createInvoice(patientDTO);
+  }
 
-//        invoice.
-//        if (patient==null){
-//            repository.save(patient);
-//                    //need review not right
-//        }
-//        repository.save(patient);
-    }
+  @GetMapping("/invoices")
+  List<Invoice> findAll() {
+    List<Invoice> allInvoices = patientManager.findAllInvoices();
+    return allInvoices;
+  }
 
-    @GetMapping("/invoices")
-    List<Invoice> findAll() {
-        List<Invoice> allInvoices = patientManager.findAllInvoices();
-        return allInvoices;
-    }
-
-    @PutMapping("/invoices/{id}/paid")
-    void updateInvoice(@RequestBody Long id) {
-        patientManager.updateInvoice(invoice);
-        invoice.setId(id);
-        invoice.setPaid(true);
-    }
+  @PutMapping("/invoices/{id}/paid")
+  void updateInvoice(@RequestBody Long id) {
+    patientManager.updateInvoice(id);
+    invoice.setId(id);
+    invoice.setPaid(true);
+  }
 
 }

@@ -11,14 +11,14 @@ import javax.persistence.Id;
 @Data
 public class Patient {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+  @Id
+  @GeneratedValue
+  private Long id;
 
-    private String uuid;
+  private String uuid;
 
-    @Column(unique = true)
-    private String name;
+  @Column(unique = true)
+  private String name;
 
 
 }
