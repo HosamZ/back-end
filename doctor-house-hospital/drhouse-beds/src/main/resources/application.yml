@@ -6,5 +6,5 @@ spring:
       uri: mongodb://localhost/beds
 dataset:
   treatment:
-    bloodPressure: take some rest
+    bloodPressure: takesomerest
 

@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ public class InvoiceManager {
 
   private final InvoiceRepository invoiceRepository;
   private Invoice invoice;
+  private final Map<String, Double> costs;
 
   public void createInvoice(PatientDTO patientDTO) {
     invoice = new Invoice();
@@ -25,6 +27,7 @@ public class InvoiceManager {
     String medicineOrTreatment = getMedicineOrTreatment(patientDTO);
     invoice.setProvided(medicineOrTreatment);
     invoice.setPaid(false);
+    invoice.setCost(calculateCosts(patientDTO));
     invoice.setKind(isMedicineOrTreatment(patientDTO));
     invoiceRepository.save(invoice);
 
@@ -44,16 +47,28 @@ public class InvoiceManager {
     return Kind.MEDICINE;
   }
 
+//  public List<Invoice> findAll() {
+//    List<Invoice> allByInvoice = invoiceRepository.findAll();
+//    return allByInvoice;
+//
+//  }
 
-  public void update(Long id) {
+  public List<Invoice> findAllInvoices() {
+    return invoiceRepository.findAll();
+  }
+
+  public void updateInvoice(Long id) {
     Optional<Invoice> byId = invoiceRepository.findById(id);
     byId.get().setPaid(true);
     invoiceRepository.save(invoice);
   }
 
-  public List<Invoice> find() {
-    List<Invoice> allByInvoice = invoiceRepository.findAll();
-    return allByInvoice;
+  public Double calculateCosts(PatientDTO patientDTO) {
+    if (Objects.equals(patientDTO.getMedicine(), null)) {
+      return costs.get(patientDTO.getTreatment());
+    }
+    return costs.get(patientDTO.getMedicine());
+//    accountant.makeCalculation(entry);
 
   }
 }
