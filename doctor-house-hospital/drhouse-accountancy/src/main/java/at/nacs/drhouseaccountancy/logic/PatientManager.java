@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @RequiredArgsConstructor
 @Service
@@ -39,8 +40,21 @@ public class PatientManager {
 
     }
 
-    public void createInvoice() {
+    public void createInvoice(PatientDTO patientDTO) {
+        Invoice invoice = new Invoice();
+        invoice.setDiagnosis(patientDTO.getDiagnosis());
+        invoice.setSymptoms(patientDTO.getSymptoms());
+        String medicineOrTreatment = getMedicineOrTreatment(patientDTO);
+        invoice.setProvided(medicineOrTreatment);
+        
+//        repository.save(invoice.getPatient());
+    }
 
+    private String getMedicineOrTreatment(PatientDTO patientDTO) {
+        if (Objects.equals(patientDTO.getMedicine(), null)) {
+            return patientDTO.getTreatment();
+        }
+        return patientDTO.getMedicine();
     }
 
     public List<Invoice> findAllInvoices() {
@@ -48,4 +62,9 @@ public class PatientManager {
         return allByInvoice;
     }
 
+    public void updateInvoice(Invoice invoice) {
+        invoice.setId(patient.getId());
+        invoice.setPaid(true);
+        repository.save(patient);
+    }
 }

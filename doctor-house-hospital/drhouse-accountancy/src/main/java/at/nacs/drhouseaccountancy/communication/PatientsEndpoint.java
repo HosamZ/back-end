@@ -21,7 +21,7 @@ public class PatientsEndpoint {
     void post() {
         patientManager.savePatient();
         patientManager.calculateCosts();
-        patientManager.createInvoice();
+        patientManager.createInvoice(patientDTO);
 
 //        invoice.
 //        if (patient==null){
@@ -39,6 +39,7 @@ public class PatientsEndpoint {
 
     @PutMapping("/invoices/{id}/paid")
     void updateInvoice(@RequestBody Long id) {
+        patientManager.updateInvoice(invoice);
         invoice.setId(id);
         invoice.setPaid(true);
     }
