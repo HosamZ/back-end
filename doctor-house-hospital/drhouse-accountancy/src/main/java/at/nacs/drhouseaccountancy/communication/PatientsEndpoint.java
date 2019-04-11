@@ -26,8 +26,7 @@ public class PatientsEndpoint {
 
   @GetMapping("/invoices")
   List<Invoice> findAll() {
-    List<Invoice> allInvoices = patientManager.findAllInvoices();
-    return allInvoices;
+    return patientManager.findAllInvoices();
   }
 
   @PutMapping("/invoices/{id}/paid")

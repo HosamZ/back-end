@@ -6,7 +6,6 @@ import at.nacs.drhouseaccountancy.persistence.Invoice;
 import at.nacs.drhouseaccountancy.persistence.Patient;
 import at.nacs.drhouseaccountancy.persistence.PatientDTO;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -29,11 +28,9 @@ public class Accountant {
     Patient patient = converter.convert(patientDTO);
     patientManager.savePatient(patient);
     patientManager.calculateCosts();
-    patientManager.createInvoice(patientDTO);
+    patientManager.createInvoice(patientDTO, patient);
 
   }
-
-  private ModelMapper modelMapper = new ModelMapper();
 
   public void makeInvoice(PatientDTO patientDTO) {
     invoiceManager.createInvoice(patientDTO);

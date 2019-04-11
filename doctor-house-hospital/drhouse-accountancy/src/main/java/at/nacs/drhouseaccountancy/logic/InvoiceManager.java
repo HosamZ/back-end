@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class InvoiceManager {
 
-  private final InvoiceRepository repository;
+  private final InvoiceRepository invoiceRepository;
   private Invoice invoice;
 
   public void createInvoice(PatientDTO patientDTO) {
@@ -26,7 +26,7 @@ public class InvoiceManager {
     invoice.setProvided(medicineOrTreatment);
     invoice.setPaid(false);
     invoice.setKind(isMedicineOrTreatment(patientDTO));
-    repository.save(invoice);
+    invoiceRepository.save(invoice);
 
   }
 
@@ -46,13 +46,13 @@ public class InvoiceManager {
 
 
   public void update(Long id) {
-    Optional<Invoice> byId = repository.findById(id);
+    Optional<Invoice> byId = invoiceRepository.findById(id);
     byId.get().setPaid(true);
-    repository.save(invoice);
+    invoiceRepository.save(invoice);
   }
 
-  public void find() {
-    List<Invoice> allByInvoice = repository.findAllByInvoice();
+  public List<Invoice> find() {
+    List<Invoice> allByInvoice = invoiceRepository.findAll();
     return allByInvoice;
 
   }
