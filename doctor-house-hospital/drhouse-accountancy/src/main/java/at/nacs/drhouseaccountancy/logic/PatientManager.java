@@ -16,26 +16,6 @@ public class PatientManager {
     patientRepository.save(patient);
   }
 
-
-//  public void createInvoice(PatientDTO patientDTO, Patient patient) {
-//    ModelMapper modelMapper = new ModelMapper();
-////    accountant.makeInvoice(patientDTO);
-//    modelMapper.map(patient, PatientDTO.class);
-//    restTemplate.postForEntity("/patients", patientDTO, Patient.class);
-//    if (patientDTO.getId() == null || patientDTO.getId().isBlank()) {//not sure
-//      patientRepository.save(patient);
-//    }
-//    patientRepository.save(patient);
-//  }
-
-//  public List<Invoice> findAllInvoices() {
-//    return accountant.findInvoices();
-//  }
-//
-//  public void updateInvoice(Long id) {
-//    accountant.updateOneInvoice(id);
-//  }
-//
 //  public void save() {
 ////    accountant.savePatient();
 //  }
