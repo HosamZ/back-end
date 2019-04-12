@@ -14,12 +14,12 @@ public class InvoiceEndpoint {
 
   private final InvoiceManager invoiceManager;
 
-  @GetMapping("/invoices")
+  @GetMapping
   List<Invoice> findAll() {
     return invoiceManager.findAllInvoices();
   }
 
-  @PutMapping("/invoices/{id}/paid")
+  @PutMapping("/{id}/paid")
   void updateInvoice(@RequestBody Long id) {
     invoiceManager.updateInvoice(id);
   }

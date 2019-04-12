@@ -12,13 +12,13 @@ import static java.util.UUID.randomUUID;
 @RequiredArgsConstructor
 public class Admission {
 
-    private final RestTemplate restTemplate;
+  private final RestTemplate restTemplate;
 
-    @Value("${hospital.url}")
-    private String url;
+  @Value("${hospital.url}")
+  private String url;
 
-    public void assignId(Patient patient) {
-        patient.setId(randomUUID().toString());
-        restTemplate.postForObject(url, patient, Patient.class);
-    }
+  public void assignId(Patient patient) {
+    patient.setId(randomUUID().toString());
+    restTemplate.postForObject(url, patient, Patient.class);
+  }
 }

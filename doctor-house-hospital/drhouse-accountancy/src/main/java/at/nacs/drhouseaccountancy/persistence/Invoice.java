@@ -3,7 +3,6 @@ package at.nacs.drhouseaccountancy.persistence;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Data
@@ -11,7 +10,7 @@ import java.time.LocalDateTime;
 public class Invoice {
 
   @Id
-//    @GeneratedValue
+  @GeneratedValue
   private Long id;
 
   //(fetch = EAGER)still not sure
@@ -30,6 +29,6 @@ public class Invoice {
 
   private boolean paid;
 
-  @NotNull//needs L review
+  //  @NotNull//needs L review
   private LocalDateTime timestamp;
 }

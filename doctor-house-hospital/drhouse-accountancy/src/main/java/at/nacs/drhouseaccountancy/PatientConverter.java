@@ -11,6 +11,5 @@ public class PatientConverter {
                   .name(patientDTO.getName())
                   .uuid(patientDTO.getId())
                   .build();
-
   }
 }

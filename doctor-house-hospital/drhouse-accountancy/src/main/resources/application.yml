@@ -11,7 +11,7 @@ spring:
 costs:
   prices:
     takesomerest: 130
-    MEDICINE: 13
+    medicine: 13
     antibiotika: 30
     antikoagulans: 40
 

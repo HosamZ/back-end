@@ -11,22 +11,24 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PatientsEndpointTest {
 
-    @Autowired
-    TestRestTemplate testRestTemplate;
+  @Autowired
+  TestRestTemplate testRestTemplate;
 
-    @MockBean
-    RestTemplate restTemplate;
+  @MockBean
+  RestTemplate restTemplate;
 
-    String url = "/patients";
+  String url = "/patients";
 
-    @Test
-    void add() {
-        Patient patient = Patient.builder().name("ahmad").symptoms("brokenhead").build();
+  @Test
+  void postPatient() {
+    Patient patient = Patient.builder().name("ahmad").symptoms("brokenhead").build();
 
-        Patient actual = testRestTemplate.postForObject(url, patient, Patient.class);
+    Patient actual = testRestTemplate.postForObject(url, patient, Patient.class);
 
-        System.out.println(actual);
+//        Assertions.assertThat(actual)
+
+    System.out.println(actual);
 
 
-    }
+  }
 }

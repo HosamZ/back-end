@@ -11,17 +11,15 @@ import java.util.Map;
 @RequiredArgsConstructor
 @ConfigurationProperties("pharmacy")
 public class Apothecary {
+  private final PatientRepository repository;
+  @Setter
+  private Map<String, String> meditation;
 
-    private final PatientRepository repository;
-
-    @Setter
-    private Map<String, String> meditation;
-
-    public Patient meditate(Patient patient) {
-        String sicknessResult = meditation.getOrDefault(patient.getDiagnosis(), "painkiller");
-        patient.setMedicine(sicknessResult);
-        repository.save(patient);
-        return patient;
-    }
+  public Patient meditate(Patient patient) {
+    String sicknessResult = meditation.getOrDefault(patient.getDiagnosis(), "painkiller");
+    patient.setMedicine(sicknessResult);
+    repository.save(patient);
+    return patient;
+  }
 
 }

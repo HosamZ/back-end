@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/patients")
 public class PatientEndpoint {
 
-    private final Apothecary apothecary;
+  private final Apothecary apothecary;
 
-    @PostMapping
-    Patient post(@RequestBody Patient patient){
-        return apothecary.meditate(patient);
-    }
-
+  @PostMapping
+  Patient post(@RequestBody Patient patient) {
+    return apothecary.meditate(patient);
+  }
 }

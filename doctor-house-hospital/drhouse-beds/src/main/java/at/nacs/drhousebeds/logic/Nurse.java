@@ -22,13 +22,12 @@ public class Nurse {
     String proceduresAdministered = treatment.get(patient.getDiagnosis());
     patient.setTreatment(proceduresAdministered);
     repository.save(patient);
-    return restTemplate.postForObject("http://localhost/9005/patients", patient, Patient.class);
-
+    return patient;
   }
 
-  public void sendToAccountancy(Patient patient) {
-    restTemplate.postForEntity("http://localhost/9005/patients", patient, Patient.class);
-  }
+//  public void sendToAccountancy(Patient patient) {
+//    restTemplate.postForEntity("http://localhost/9005/patients", patient, Patient.class);
+//  }
 
 //    public Patient post(Patient patient) {
 //        return restTemplate.postForObject("http://localhost:9005/accountant", patient, Patient.class);

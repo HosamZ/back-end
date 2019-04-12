@@ -3,16 +3,16 @@ package at.nacs.drhouseaccountancy;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Repository;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.Map;
 
 @ConfigurationProperties("costs")
-@Repository
-public class Configuration {
+@Configuration
+public class PricesConfiguration {
   @Setter
   @Getter
-  Map<String, Double> prices;
+  private Map<String, Double> prices;
 //
 //  Map<String, Double> getPrices() {
 //    return prices;
