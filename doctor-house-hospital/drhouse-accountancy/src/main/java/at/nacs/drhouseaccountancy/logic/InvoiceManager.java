@@ -1,7 +1,11 @@
 package at.nacs.drhouseaccountancy.logic;
 
-import at.nacs.drhouseaccountancy.PricesConfiguration;
-import at.nacs.drhouseaccountancy.persistence.*;
+import at.nacs.drhouseaccountancy.configuration.PricesConfiguration;
+import at.nacs.drhouseaccountancy.persistence.domain.Invoice;
+import at.nacs.drhouseaccountancy.persistence.domain.Kind;
+import at.nacs.drhouseaccountancy.persistence.domain.Patient;
+import at.nacs.drhouseaccountancy.persistence.domain.PatientDTO;
+import at.nacs.drhouseaccountancy.persistence.repository.InvoiceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +21,11 @@ public class InvoiceManager {
   private final InvoiceRepository invoiceRepository;
   //  private Map<String, Double> prices;
   private final PricesConfiguration pricesConfiguration;
-  private Invoice invoice;
 
-  public void createInvoice(PatientDTO patientDTO, Patient patient) {
-    invoice = new Invoice();
+
+  public Invoice createInvoice(PatientDTO patientDTO, Patient patient) {
+    // TODO replace with builder
+    Invoice invoice = new Invoice();
     invoice.setDiagnosis(patientDTO.getDiagnosis());
     invoice.setSymptoms(patientDTO.getSymptoms());
     String medicineOrTreatment = getMedicineOrTreatment(patientDTO);
@@ -31,7 +36,7 @@ public class InvoiceManager {
     invoice.setKind(isMedicineOrTreatment(patientDTO));
     invoice.setPatient(patient);
     invoiceRepository.save(invoice);
-
+    return invoice;
   }
 
   private String getMedicineOrTreatment(PatientDTO patientDTO) {
@@ -58,9 +63,11 @@ public class InvoiceManager {
     return invoiceRepository.findAll();
   }
 
-  public void updateInvoice(Long id) {
+  public void markAsPaid(Long id) {
     Optional<Invoice> byId = invoiceRepository.findById(id);
-    byId.get().setPaid(true);
+    // TODO Check if empty then return
+    Invoice invoice = byId.get();
+    invoice.setPaid(true);
     invoiceRepository.save(invoice);
   }
 
@@ -69,7 +76,5 @@ public class InvoiceManager {
       return pricesConfiguration.getPrices().get(patientDTO.getTreatment());
     }
     return pricesConfiguration.getPrices().get(patientDTO.getMedicine());
-//    accountant.makeCalculation(entry);
-
   }
 }

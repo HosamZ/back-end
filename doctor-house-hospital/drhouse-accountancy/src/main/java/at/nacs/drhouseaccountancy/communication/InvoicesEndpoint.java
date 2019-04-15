@@ -1,7 +1,7 @@
 package at.nacs.drhouseaccountancy.communication;
 
 import at.nacs.drhouseaccountancy.logic.InvoiceManager;
-import at.nacs.drhouseaccountancy.persistence.Invoice;
+import at.nacs.drhouseaccountancy.persistence.domain.Invoice;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/invoices")
-public class InvoiceEndpoint {
+public class InvoicesEndpoint {
 
   private final InvoiceManager invoiceManager;
 
@@ -20,7 +20,7 @@ public class InvoiceEndpoint {
   }
 
   @PutMapping("/{id}/paid")
-  void updateInvoice(@RequestBody Long id) {
-    invoiceManager.updateInvoice(id);
+  void paid(@RequestBody Long id) {
+    invoiceManager.markAsPaid(id);
   }
 }

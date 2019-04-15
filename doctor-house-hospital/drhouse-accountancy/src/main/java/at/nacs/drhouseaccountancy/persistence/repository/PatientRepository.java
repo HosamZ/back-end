@@ -1,8 +1,7 @@
-package at.nacs.drhouseaccountancy.persistence;
+package at.nacs.drhouseaccountancy.persistence.repository;
 
+import at.nacs.drhouseaccountancy.persistence.domain.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface PatientRepository extends JpaRepository<Patient, Long> {
 }

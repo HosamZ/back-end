@@ -1,4 +1,4 @@
-package at.nacs.drhouseaccountancy.persistence;
+package at.nacs.drhouseaccountancy.persistence.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

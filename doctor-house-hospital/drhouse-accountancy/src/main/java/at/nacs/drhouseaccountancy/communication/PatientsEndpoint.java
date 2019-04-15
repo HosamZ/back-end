@@ -1,7 +1,7 @@
 package at.nacs.drhouseaccountancy.communication;
 
-import at.nacs.drhouseaccountancy.Accountant;
-import at.nacs.drhouseaccountancy.persistence.PatientDTO;
+import at.nacs.drhouseaccountancy.logic.Accountant;
+import at.nacs.drhouseaccountancy.persistence.domain.PatientDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +17,6 @@ public class PatientsEndpoint {
 
   @PostMapping
   void post(@RequestBody PatientDTO patientDTO) {
-    accountant.post(patientDTO);
+    accountant.invoice(patientDTO);
   }
 }

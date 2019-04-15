@@ -1,8 +1,8 @@
 package at.nacs.drhouseaccountancy.logic;
 
 
-import at.nacs.drhouseaccountancy.persistence.Patient;
-import at.nacs.drhouseaccountancy.persistence.PatientRepository;
+import at.nacs.drhouseaccountancy.persistence.domain.Patient;
+import at.nacs.drhouseaccountancy.persistence.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

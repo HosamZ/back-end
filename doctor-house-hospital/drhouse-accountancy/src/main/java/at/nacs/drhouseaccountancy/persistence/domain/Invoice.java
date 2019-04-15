@@ -1,4 +1,4 @@
-package at.nacs.drhouseaccountancy.persistence;
+package at.nacs.drhouseaccountancy.persistence.domain;
 
 import lombok.Data;
 
@@ -13,7 +13,6 @@ public class Invoice {
   @GeneratedValue
   private Long id;
 
-  //(fetch = EAGER)still not sure
   @ManyToOne
   private Patient patient;
 
@@ -29,6 +28,5 @@ public class Invoice {
 
   private boolean paid;
 
-  //  @NotNull//needs L review
   private LocalDateTime timestamp;
 }

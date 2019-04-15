@@ -1,4 +1,4 @@
-package at.nacs.drhouseaccountancy;
+package at.nacs.drhouseaccountancy.configuration;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,8 +13,4 @@ public class PricesConfiguration {
   @Setter
   @Getter
   private Map<String, Double> prices;
-//
-//  Map<String, Double> getPrices() {
-//    return prices;
-//  }
 }

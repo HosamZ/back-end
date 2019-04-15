@@ -1,7 +1,7 @@
-package at.nacs.drhouseaccountancy;
+package at.nacs.drhouseaccountancy.logic;
 
-import at.nacs.drhouseaccountancy.persistence.Patient;
-import at.nacs.drhouseaccountancy.persistence.PatientDTO;
+import at.nacs.drhouseaccountancy.persistence.domain.Patient;
+import at.nacs.drhouseaccountancy.persistence.domain.PatientDTO;
 import org.springframework.stereotype.Service;
 
 @Service
