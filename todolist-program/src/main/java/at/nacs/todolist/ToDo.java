@@ -7,6 +7,6 @@ import lombok.Data;
 @Builder
 public class ToDo {
     private String id;
-    private String title;
     private boolean done;
+    private String title;
 }

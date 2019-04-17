@@ -1,13 +1,13 @@
-package at.nacs.magic8ball;
+package at.nacs.drhouseadministration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Magic8ballApplication {
+public class DrhouseAdministrationApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(Magic8ballApplication.class, args);
+    SpringApplication.run(DrhouseAdministrationApplication.class, args);
   }
 
 }

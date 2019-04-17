@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>HOME PAGE</title>
+
+    <meta charset="UTF-8"/>
+
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+
+</head>
+<body>
+<h2>Please fill up your information's</h2>
+<br>
+<form method="post" th:action="@{/}" th:object="${patient}">
+    <label>Name: </label>
+    <input th:field="*{name}" type="text"/>
+    <p th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Incorrect input</p>
+    <button type="submit">submit</button>
+</form>
+<form method="post" th:action="@{/}" th:object="${patient}">
+    <label>Symptoms:</label>
+    <input th:field="*{symptoms}" type="text"/>
+    <p th:errors="*{symptoms}" th:if="${#fields.hasErrors('symptoms')}">Please give Symptoms</p>
+    <button type="submit">submit</button>
+
+</form>
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th>List of ToDo:</th>-->
+<!--    </tr>-->
+<!--    <tr th:each="todo : ${todos}">-->
+<!--        <td th:text="${todo.title}">Title</td>-->
+<!--        <td>-->
+<!--            <span th:if="${todo.done == true}">Done!</span>-->
+<!--            <form th:if="${todo.done == false}" method="post" th:action="@{/done}">-->
+<!--                <input name="id" th:value="${todo.id}" type="hidden"/>-->
+<!--                <button type="submit"> Mark it as done</button>-->
+<!--            </form>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <form method="post" th:action="@{/delete}">-->
+<!--                <input name="id" th:value="${todo.id}" type="hidden"/>-->
+<!--                <button type="submit">Get rid of this crap!</button>-->
+<!--            </form>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+
+</body>
+</html>

@@ -53,12 +53,6 @@ public class InvoiceManager {
     return Kind.MEDICINE;
   }
 
-//  public List<Invoice> findAll() {
-//    List<Invoice> allByInvoice = invoiceRepository.findAll();
-//    return allByInvoice;
-//
-//  }
-
   public List<Invoice> findAllInvoices() {
     return invoiceRepository.findAll();
   }

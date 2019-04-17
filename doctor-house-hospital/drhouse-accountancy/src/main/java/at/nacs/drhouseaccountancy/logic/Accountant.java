@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 public class Accountant {
 
   private final PatientManager patientManager;
-  private final PatientConverter converter;
   private final InvoiceManager invoiceManager;
+  private final PatientConverter converter;
 
   public void invoice(PatientDTO patientDTO) {
     Patient patient = converter.convert(patientDTO);

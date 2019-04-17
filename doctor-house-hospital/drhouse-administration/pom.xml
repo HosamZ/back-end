@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>at.nacs</groupId>
-    <artifactId>the_magic_8ball</artifactId>
+    <artifactId>drhouse-administration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>the_magic_8ball</name>
+    <name>drhouse-administration</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
