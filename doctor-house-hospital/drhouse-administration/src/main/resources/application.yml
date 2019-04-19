@@ -3,3 +3,7 @@ server:
 admission:
   server:
     url: http://localhost:9001/patients
+
+invoices:
+  server:
+    url: http://localhost:9005/invoices

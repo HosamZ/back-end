@@ -17,11 +17,13 @@ public class PatientEndpoint {
 
   @PostMapping
   Patient post(@RequestBody Patient patient) {
-    return nurse.treat(patient);
+    Patient treatedPatient = nurse.treat(patient);
+    Patient patient1 = nurse.sendToAccountancy(treatedPatient);
+    return patient1;
   }
 
-//    @PostMapping
-//    void postToAccountancy(@RequestBody Patient patient) {
-//        nurse.sendToAccountancy(patient);
-//    }
+//  @PostMapping
+//  void postToAccountancy(@RequestBody Patient patient) {
+//    nurse.sendToAccountancy(patient);
+//  }
 }

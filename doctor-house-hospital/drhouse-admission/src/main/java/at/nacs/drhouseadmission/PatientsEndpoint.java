@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/patients")
 @RequiredArgsConstructor
 public class PatientsEndpoint {
+  private final Admission admission;
 
-    private final Admission admission;
-
-    @PostMapping
-    Patient addmission(@RequestBody Patient patient) {
-        admission.assignId(patient);
-        return patient;
-    }
+  @PostMapping
+  Patient addmission(@RequestBody Patient patient) {
+    admission.assignId(patient);
+    return patient;
+  }
 }

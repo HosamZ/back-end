@@ -13,10 +13,9 @@ public class PatientManager {
   private final PatientRepository patientRepository;
 
   public void savePatient(Patient patient) {
+    if (patientRepository.existsByUuid(patient.getUuid())) {
+      return;
+    }
     patientRepository.save(patient);
   }
-
-//  public void save() {
-////    accountant.savePatient();
-//  }
 }

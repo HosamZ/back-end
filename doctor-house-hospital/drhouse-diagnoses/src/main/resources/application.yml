@@ -5,6 +5,7 @@ doctor:
   report:
     headache: bloodPressure
     fever: malaria
+    bloodPressure: takesomerest
   sections:
     bloodPressure: beds-section
     malaria: pharmacy-section

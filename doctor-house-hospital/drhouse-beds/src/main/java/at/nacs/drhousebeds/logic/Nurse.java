@@ -25,9 +25,10 @@ public class Nurse {
     return patient;
   }
 
-//  public void sendToAccountancy(Patient patient) {
-//    restTemplate.postForEntity("http://localhost/9005/patients", patient, Patient.class);
-//  }
+  public Patient sendToAccountancy(Patient patient) {
+    restTemplate.postForObject("http://localhost:9005/patients", patient, Patient.class);
+    return patient;
+  }
 
 //    public Patient post(Patient patient) {
 //        return restTemplate.postForObject("http://localhost:9005/accountant", patient, Patient.class);

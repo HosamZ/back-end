@@ -20,7 +20,7 @@ public class InvoicesEndpoint {
   }
 
   @PutMapping("/{id}/paid")
-  void paid(@RequestBody Long id) {
+  void paid(@PathVariable Long id) {
     invoiceManager.markAsPaid(id);
   }
 }

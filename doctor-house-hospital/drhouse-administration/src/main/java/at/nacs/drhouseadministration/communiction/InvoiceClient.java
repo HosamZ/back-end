@@ -15,7 +15,7 @@ import java.util.List;
 public class InvoiceClient {
   private final RestTemplate restTemplate;
 
-  @Value("${admission.server.url}")
+  @Value("${invoices.server.url}")
   private String url;
 
   public List<Invoice> findAll() {
@@ -23,7 +23,11 @@ public class InvoiceClient {
     return new ArrayList<>(Arrays.asList(invoices));
   }
 
-  public void save(Invoice invoice) {
-    restTemplate.getForObject(url, Invoice.class);
+//  public void save(Invoice invoice) {
+//    restTemplate.getForObject(url, Invoice.class);
+//  }
+
+  public void markAsPaid(Long id) {
+    restTemplate.put(url + "/" + id + "/paid", Void.class);
   }
 }
