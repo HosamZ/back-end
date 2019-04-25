@@ -3,6 +3,7 @@ package at.nacs.drhousediagnoses;
 import at.nacs.drhousediagnoses.domain.Patient;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -22,9 +23,13 @@ public class DrHouse {
   @Setter
   private Map<String, String> sections;
 
+  @Value("${pharmacy.url}")
+  private String pharmacyurl;
+
+  @Value("${beds.url}")
+  private String bedsurl;
+
   public void sendTo(Patient patient) {
-    String pharmacyurl = "http://localhost:9004/patients";
-    String bedsurl = "http://localhost:9003/patients";
     String diagnosis = report.get(patient.getSymptoms());
     patient.setDiagnosis(diagnosis);
     String result = sections.getOrDefault(diagnosis, "pharmacy-section");

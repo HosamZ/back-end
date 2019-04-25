@@ -6,7 +6,13 @@ doctor:
     headache: bloodPressure
     fever: malaria
     bloodPressure: takesomerest
+    malaria: don`t leave bed
   sections:
     bloodPressure: beds-section
     malaria: pharmacy-section
     lupus: pharmacy-section
+pharmacy:
+  url: http://localhost:9004/patients
+beds:
+  url: http://localhost:9003/patients
+

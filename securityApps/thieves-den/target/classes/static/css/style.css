@@ -1,0 +1,14 @@
+html {
+    color: blue;
+    text-align: center;
+    background-image: url(treasure.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+p {
+    color: crimson;
+    font-size: 1.6em;
+}

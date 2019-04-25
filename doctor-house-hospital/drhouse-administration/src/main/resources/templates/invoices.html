@@ -4,29 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <title>HOSPITAL PATIENTS</title>
-    <link media="all" rel="stylesheet" th:href="@{/css/styleInvoices.css}" type="text/css"/>
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
 </head>
 <body>
 <h1 class="invoices">Here are all the Invoices: </h1>
 
 <table class="filedName">
     <tr>
-        <th>List of Invoices ID`s:</th>
         <th>Patient name:</th>
-        <th>Patient kind:</th>
-        <th>Patient symptoms:</th>
-        <th>Patient diagnosis:</th>
-        <th>Patient provided:</th>
+        <th>ID`s:</th>
+        <th>kind:</th>
+        <th>Symptoms:</th>
+        <th>Diagnosis:</th>
+        <th>Provided:</th>
+        <th>Cost:</th>
         <th>Patient paid:</th>
         <th>Timestamp:</th>
     </tr>
     <tr th:each="invoice : ${invoices}">
-        <td th:text="${invoice.id}">Invoice ID:</td>
         <td th:text="${invoice.patient.name}">Patient name:</td>
+        <td th:text="${invoice.id}">Invoice ID:</td>
         <td th:text="${invoice.kind}">Patient kind:</td>
         <td th:text="${invoice.symptoms}">Patient symptoms:</td>
         <td th:text="${invoice.diagnosis}">Patient diagnosis:</td>
         <td th:text="${invoice.provided}">Patient provided:</td>
+        <td th:text="${invoice.cost}">Cost:</td>
         <td th:text="${invoice.paid}">Patient paid:</td>
         <td th:text="${invoice.timestamp}">Timestamp:</td>
         <td>
@@ -37,5 +39,9 @@
             </form>
         </td>
 </table>
+
+<div class="background-wrap">
+    <img id="image-bg" th:src="@{/images/daan-stevens-282446-unsplash.jpg}"/>
+</div>
 </body>
 </html>

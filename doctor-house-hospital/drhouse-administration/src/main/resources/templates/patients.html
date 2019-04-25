@@ -2,19 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>HOME PAGE</title>
-
     <meta charset="UTF-8"/>
-
     <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
-    <!--    <link rel="stylesheet" href="test2.css">-->
-
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i" rel="stylesheet">
 
 </head>
 <body class="input">
-<h1>Please fill up your information's</h1>
+
+<h1>Please fill up your information</h1>
 <form method="post" th:action="@{/}" th:object="${patient}">
-    <p class="name" align="center">Please enter your name: </p>
+    <p class="name" align="center"><strong>Please enter your name:</strong></p>
     <label class="filedName">Name: </label>
     <input class="input" th:field="*{name}" type="text"/>
     <p th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Incorrect input</p>
@@ -31,6 +28,17 @@
 <br><br/>
 <br><br/>
 <a th:href="@{/invoices}" target="_blank">See all invoices</a>
+
+<form method="post" th:action="@{/logout}">
+    <button>Sign Out</button>
+</form>
 <br/>
+
+<div class="background-wrap">
+    <video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
+        <source th:src="@{video/videoo.mp4}" type="video/mp4">
+        Video not supported
+    </video>
+</div>
 </body>
 </html>

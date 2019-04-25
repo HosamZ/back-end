@@ -9,25 +9,25 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
 public class InvoiceClient {
   private final RestTemplate restTemplate;
 
-  @Value("${invoices.server.url}")
+  @Value("${invoices.url}")
   private String url;
+
+  @Value("${invoices.paid.url}")
+  private String paidUrl;
 
   public List<Invoice> findAll() {
     Invoice[] invoices = restTemplate.getForObject(url, Invoice[].class);
     return new ArrayList<>(Arrays.asList(invoices));
   }
 
-//  public void save(Invoice invoice) {
-//    restTemplate.getForObject(url, Invoice.class);
-//  }
-
   public void markAsPaid(Long id) {
-    restTemplate.put(url + "/" + id + "/paid", Void.class);
+    restTemplate.put(paidUrl, null, Map.of("id", id));
   }
 }
