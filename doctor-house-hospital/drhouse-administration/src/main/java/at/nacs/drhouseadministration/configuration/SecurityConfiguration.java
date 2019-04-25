@@ -17,6 +17,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     http
         .authorizeRequests()
         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+        .antMatchers("/").permitAll()
         .antMatchers("/invoices").hasRole("ACCOUNTANT")
         .antMatchers("/patients").permitAll()
         .anyRequest().fullyAuthenticated()
