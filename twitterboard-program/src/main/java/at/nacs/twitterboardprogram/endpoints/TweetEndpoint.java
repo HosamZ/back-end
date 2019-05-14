@@ -1,5 +1,7 @@
-package at.nacs.twitterboardprogram;
+package at.nacs.twitterboardprogram.endpoints;
 
+import at.nacs.twitterboardprogram.domain.Tweet;
+import at.nacs.twitterboardprogram.Twitter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

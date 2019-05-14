@@ -12,22 +12,21 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PokemonManager {
 
-    private final PokemonRepository repository;
+  private final PokemonRepository repository;
 
-    public List<Pokemon> findAll() {
-        return repository.findAll();
-    }
+  public List<Pokemon> findAll() {
+    return repository.findAll();
+  }
 
-    public Optional<Pokemon> findByName(String name) {
-        return repository.findOneByName(name);
-    }
+  public Optional<Pokemon> findByName(String name) {
+    return repository.findOneByName(name);
+  }
 
-    public List<Pokemon> findByType(String type) {
-        return repository.findByType(type);
-    }
+  public List<Pokemon> findByType(String type) {
+    return repository.findByType(type);
+  }
 
-    public List<Pokemon> findBySubtype(String subtype) {
-        return repository.findBySubtype(subtype);
-    }
-
+  public List<Pokemon> findBySubtype(String subtype) {
+    return repository.findBySubtype(subtype);
+  }
 }

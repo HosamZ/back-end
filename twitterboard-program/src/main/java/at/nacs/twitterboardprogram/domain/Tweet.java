@@ -1,4 +1,4 @@
-package at.nacs.twitterboardprogram;
+package at.nacs.twitterboardprogram.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

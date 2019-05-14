@@ -1,5 +1,6 @@
 package at.nacs.twitterboardprogram;
 
+import at.nacs.twitterboardprogram.domain.Tweet;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

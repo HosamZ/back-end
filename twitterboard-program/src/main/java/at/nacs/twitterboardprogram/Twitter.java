@@ -1,5 +1,6 @@
 package at.nacs.twitterboardprogram;
 
+import at.nacs.twitterboardprogram.domain.Tweet;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

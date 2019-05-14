@@ -1,5 +1,6 @@
 package at.nacs.twitterboardprogram;
 
+import at.nacs.twitterboardprogram.domain.Tweet;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;

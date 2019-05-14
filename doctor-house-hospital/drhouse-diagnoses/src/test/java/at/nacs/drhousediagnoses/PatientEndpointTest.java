@@ -14,20 +14,20 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 class PatientEndpointTest {
 
-    @MockBean
-    RestTemplate restTemplate;
+  @MockBean
+  RestTemplate restTemplate;
 
-    @Autowired
-    TestRestTemplate testRestTemplate;
+  @Autowired
+  TestRestTemplate testRestTemplate;
 
-    String url = "/patients";
+  String url = "/patients";
 
-    @Test
-    void testPatient() {
-        Patient patient = Patient.builder().id("123").name("samer").symptoms("wasting time on PC").diagnosis("Dota").build();
+  @Test
+  void testPatient() {
+    Patient patient = Patient.builder().id("123").name("samer").symptoms("wasting time on PC").diagnosis("Dota").build();
 
-        Patient actual = testRestTemplate.postForObject(url, patient, Patient.class);
-        System.out.println(actual);
-        assertThat(restTemplate.postForObject(url, patient, String.class));
-    }
+    Patient actual = testRestTemplate.postForObject(url, patient, Patient.class);
+
+    assertThat(restTemplate.postForObject(url, patient, String.class));
+  }
 }

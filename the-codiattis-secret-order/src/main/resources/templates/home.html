@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>The Codiattis Secret Order</title>
+</head>
+<body>
+<h1 class="users">Here are all the users: </h1>
+
+<table class="filedName">
+    <tr>
+        <th>username:</th>
+        <th>password:</th>
+        <th>authorities:</th>
+        <block>
+            <!--    <span th:if="${isAdmin}">-->
+    <tr th:each="user : ${users}">
+        <td th:text="${user.username}">user username:</td>
+        <td th:text="${user.password}">user password:</td>
+        <td th:text="${user.authorities}">user authorities:</td>
+    </tr>
+    <!--</span>-->
+    </block>
+</table>
+<form method="post" th:action="@{/}" th:object="${user}">
+    <p class="name" ><strong>Please enter username:</strong></p>
+    <label class="filedName">Name: </label>
+    <input class="input" th:field="*{username}" type="text"/>
+    <p >Please enter user password:</p>
+    <label>Password:</label>
+    <input th:field="*{password}" type="text"/>
+    <p >Please enter user role:</p>
+    <label>Role:</label>
+    <input th:field="*{authorities}" type="text"/>
+
+    <button type="submit">submit</button>
+
+</form>
+<form method="post" th:action="@{/logout}">
+    <button>Sign Out</button>
+</form>
+</body>
+</html>
