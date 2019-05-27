@@ -1,0 +1,7 @@
+
+CoffeeBean(color=black)
+CoffeeBean(color=black)
+CoffeeBean(color=black)
+CoffeeBean(color=black)
+CoffeeBean(color=black)
+CoffeeBean(color=black)

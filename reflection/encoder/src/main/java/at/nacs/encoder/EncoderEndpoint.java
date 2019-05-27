@@ -21,7 +21,7 @@ public class EncoderEndpoint {
                 .map(e -> plainText.replaceAll(" ",""))
                 .map(e -> e.split(""))
                 .flatMap(Stream::of)
-                .map(morseClient::send)
+                .map(letter -> morseClient.send(letter))
                 .collect(Collectors.joining());
     }
     //ToDo post here

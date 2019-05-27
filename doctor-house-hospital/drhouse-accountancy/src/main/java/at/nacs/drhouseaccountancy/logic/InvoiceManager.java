@@ -22,7 +22,6 @@ public class InvoiceManager {
   private final PricesManager pricesManager;
 
   public Invoice createInvoice(PatientDTO patientDTO, Patient patient) {
-    // TODO replace with builder
     Invoice invoice = Invoice.builder()
                              .patient(patient)
                              .kind(getKind(patientDTO))
